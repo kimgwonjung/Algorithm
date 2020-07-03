@@ -9,8 +9,7 @@ public:
 	int shark_num, small_cnt;
 	bool flag; // 상어가 처음 움직이고 났을 땐 냄새가 감소해서는 안된다.
 };
-Map map[21][21];
-int shark_move[401][5][4]; // 상어는 400마리까지 존재하며 각각의 상하좌우에 대해 4가지 우선순위가 존재
+
 class point {
 public:
 	int y, x, dir;
@@ -20,6 +19,8 @@ class point2 {
 public:
 	int idx, dir;
 };
+Map map[21][21];
+int shark_move[401][5][4]; // 상어는 400마리까지 존재하며 각각의 상하좌우에 대해 4가지 우선순위가 존재
 vector<point2> cnt_map[21][21];
 void small_count_down() {
 	for (int i = 1; i <= n; i++) {
@@ -93,21 +94,6 @@ int simulation() {
 		}
 		small_count_down();//냄새카운터를 감소
 		time++;
-		//cout << time << "\n";
-		//for (int i = 1; i <= n; i++) {
-		//	for (int j = 1; j <= n; j++) {
-		//		cout << map[i][j].shark_num << " ";
-		//	}
-		//	cout << "\n";
-		//}
-		//cout << "\n";
-		//for (int i = 1; i <= n; i++) {
-		//	for (int j = 1; j <= n; j++) {
-		//		cout << map[i][j].small_cnt << " ";
-		//	}
-		//	cout << "\n";
-		//}
-		//cout << "\n";
 	}
 	return time;
 }
